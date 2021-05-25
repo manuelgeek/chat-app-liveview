@@ -1,4 +1,4 @@
-# CuriousMessenger]
+# CuriousMessenger
 
 > Credits: https://curiosum.dev/blog/elixir-phoenix-liveview-messenger-part-2
 
