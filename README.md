@@ -1,4 +1,6 @@
-# CuriousMessenger
+# CuriousMessenger]
+
+> Credits: https://curiosum.dev/blog/elixir-phoenix-liveview-messenger-part-2
 
 To start your Phoenix server:
 
