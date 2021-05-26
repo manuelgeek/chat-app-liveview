@@ -38,7 +38,7 @@ defmodule CuriousMessengerWeb do
       import Phoenix.Controller,
         only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
 
-      import Phoenix.LiveView, only: [live_render: 2, live_render: 3, live_link: 1, live_link: 2]
+      import Phoenix.LiveView.Helpers
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
