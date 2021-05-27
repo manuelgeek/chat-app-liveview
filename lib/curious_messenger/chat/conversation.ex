@@ -8,6 +8,7 @@ defmodule CuriousMessenger.Chat.Conversation do
 
     has_many :conversation_members, ConversationMember
     has_many :messages, Message
+    has_many :conversations, through: [:conversation_members, :conversation]
 
     timestamps()
   end
@@ -16,6 +17,7 @@ defmodule CuriousMessenger.Chat.Conversation do
   def changeset(conversation, attrs) do
     conversation
     |> cast(attrs, [:title])
+    |> cast_assoc(:conversation_members)
     |> validate_required([:title])
   end
 end
