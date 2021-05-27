@@ -7,6 +7,5 @@ defmodule CuriousMessenger.Repo.Migrations.CreateChatConversations do
 
       timestamps()
     end
-
   end
 end

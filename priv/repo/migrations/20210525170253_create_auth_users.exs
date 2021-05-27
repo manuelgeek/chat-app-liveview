@@ -9,6 +9,5 @@ defmodule CuriousMessenger.Repo.Migrations.CreateAuthUsers do
 
       # create unique_index(:auth_users, [:nickname])
     end
-
   end
 end

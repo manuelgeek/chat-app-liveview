@@ -15,8 +15,8 @@ defmodule CuriousMessenger.Repo.Migrations.CreateChatConversationMembers do
     create unique_index(:chat_conversation_members, [:conversation_id, :user_id])
 
     create unique_index(:chat_conversation_members, [:conversation_id],
-         where: "owner = TRUE",
-         name: "chat_conversation_members_owner"
-       )
+             where: "owner = TRUE",
+             name: "chat_conversation_members_owner"
+           )
   end
 end

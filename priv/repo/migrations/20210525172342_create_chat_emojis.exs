@@ -8,6 +8,5 @@ defmodule CuriousMessenger.Repo.Migrations.CreateChatEmojis do
 
       timestamps()
     end
-
   end
 end

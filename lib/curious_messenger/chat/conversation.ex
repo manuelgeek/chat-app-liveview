@@ -3,7 +3,6 @@ defmodule CuriousMessenger.Chat.Conversation do
   import Ecto.Changeset
   alias CuriousMessenger.Chat.{ConversationMember, Message}
 
-
   schema "chat_conversations" do
     field :title, :string
 
