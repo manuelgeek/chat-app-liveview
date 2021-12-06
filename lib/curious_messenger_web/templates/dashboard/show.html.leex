@@ -3,7 +3,7 @@
   <%= for conversation <- @current_user.conversations do %>
     <div>
       <%= link conversation.title,
-               to: Routes.conversation_path(@socket,
+               to: Routes.live_path(@socket,
                                             CuriousMessengerWeb.ConversationLive,
                                             conversation.id,
                                             @current_user.id) %>
@@ -14,7 +14,7 @@
 <article class="column">
   <h2>Create Conversation</h2>
 
-  <%= form_for @conversation_changeset, "", [phx_submit: :create_conversation], fn f -> %>
+  <%= form_for @conversation_changeset, "", [id: "create-conversation-form", phx_submit: :create_conversation, phx_hook: "CreateConversationFormHooks"], fn f -> %>
     <p>
       <%= inputs_for f, :conversation_members, fn cmf -> %>
         <%= remove_member_link(@contacts, cmf.source.changes[:user_id], @current_user.id) %>

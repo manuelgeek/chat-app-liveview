@@ -9,7 +9,11 @@ defmodule CuriousMessengerWeb.AssignUser do
   def call(conn, params) do
     case Pow.Plug.current_user(conn) do
       %User{} = user ->
-        assign(conn, :current_user, Repo.preload(CuriousMessenger.Auth.get_user!(user.id), params[:preload] || []))
+        assign(
+          conn,
+          :current_user,
+          Repo.preload(CuriousMessenger.Auth.get_user!(user.id), params[:preload] || [])
+        )
 
       _ ->
         assign(conn, :current_user, nil)

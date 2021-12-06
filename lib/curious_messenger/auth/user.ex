@@ -6,7 +6,6 @@ defmodule CuriousMessenger.Auth.User do
 
   alias CuriousMessenger.Chat.ConversationMember
 
-
   schema "auth_users" do
     field :nickname, :string
     pow_user_fields()

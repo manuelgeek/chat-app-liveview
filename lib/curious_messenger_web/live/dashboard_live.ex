@@ -15,6 +15,8 @@ defmodule CuriousMessengerWeb.DashboardLive do
   end
 
   def mount(_params, %{"current_user" => current_user}, socket) do
+     CuriousMessengerWeb.Endpoint.subscribe("user_conversations_#{current_user.id}")
+
     {:ok,
      socket
      |> assign(current_user: current_user)
@@ -58,27 +60,21 @@ defmodule CuriousMessengerWeb.DashboardLive do
           }
         } = socket
       ) do
-    conversation_form =
-      Map.put(
-        conversation_form,
-        "title",
-        if(conversation_form["title"] == "",
-          do: build_title(changeset, contacts),
-          else: conversation_form["title"]
-        )
-      )
+    title = if conversation_form["title"] == "" do
+              build_title(changeset, contacts)
+            else
+              conversation_form["title"]
+            end
+
+    conversation_form = Map.put(conversation_form, "title", title)
 
     case Chat.create_conversation(conversation_form) do
       {:ok, _} ->
-        {:noreply,
-         assign(
-           socket,
-           :current_user,
-           Repo.preload(current_user, :conversations, force: true)
-         )}
+        {:noreply, socket}
 
       {:error, err} ->
         Logger.error(inspect(err))
+        {:noreply, socket}
     end
   end
 
@@ -124,6 +120,30 @@ defmodule CuriousMessengerWeb.DashboardLive do
     new_changeset = Changeset.put_change(changeset, :conversation_members, new_members)
 
     {:noreply, assign(socket, :conversation_changeset, new_changeset)}
+  end
+
+  def handle_event("restore_state", %{"form_data" => form_data}, socket) do
+    # Decode form data sent from the pre-disconnect form
+    decoded_form_data = Plug.Conn.Query.decode(form_data)
+
+    # Since the new LiveView has already run the mount function, we have the changeset assigned
+    %{assigns: %{conversation_changeset: changeset}} = socket
+
+    # Now apply decoded form data to that changeset
+    restored_changeset =
+      changeset
+      |> Conversation.changeset(decoded_form_data["conversation"])
+
+    # Reassign the changeset, which will then trigger a re-render
+    {:noreply, assign(socket, :conversation_changeset, restored_changeset)}
+  end
+
+  def handle_info(%{event: "new_conversation", payload: new_conversation}, socket) do
+    user = socket.assigns[:current_user]
+    annotated_conversation = new_conversation |> Map.put(:notify, true)
+    user = %{user | conversations: (user.conversations |> Enum.map(&(Map.delete(&1, :notify)))) ++ [annotated_conversation]}
+
+    {:noreply, assign(socket, :current_user, user)}
   end
 
   defp build_title(changeset, contacts) do
