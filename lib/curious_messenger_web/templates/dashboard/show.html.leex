@@ -2,11 +2,7 @@
   <h2>Ongoing Conversations</h2>
   <%= for conversation <- @current_user.conversations do %>
     <div>
-      <%= link conversation.title,
-               to: Routes.live_path(@socket,
-                                            CuriousMessengerWeb.ConversationLive,
-                                            conversation.id,
-                                            @current_user.id) %>
+      <%= link conversation.title, to: Routes.live_path(@socket, CuriousMessengerWeb.ConversationLive, conversation.id, @current_user.id) %>
     </div>
   <% end %>
 </article>

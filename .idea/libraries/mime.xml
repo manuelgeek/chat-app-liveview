@@ -7,6 +7,8 @@
       <root url="file://$PROJECT_DIR$/_build/dev/lib/mime/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/mime/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/mime/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/mime/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/mime/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
@@ -15,6 +17,8 @@
       <root url="file://$PROJECT_DIR$/deps/mime/lib" />
       <root url="file://$PROJECT_DIR$/deps/mime/priv" />
       <root url="file://$PROJECT_DIR$/deps/mime/lib" />
+      <root url="file://$PROJECT_DIR$/deps/mime/lib" />
+      <root url="file://$PROJECT_DIR$/deps/mime/priv" />
     </SOURCES>
   </library>
 </component>

@@ -16,14 +16,14 @@ import "../css/app.scss"
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
 import { Socket } from "phoenix"
-import LiveSocket from "phoenix_live_view"
+import {LiveSocket} from "phoenix_live_view"
 
 import CreateConversationFormHooks from "./create_conversation_form_hooks";
 
 // Show progress bar on live navigation and form submits
-topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
-window.addEventListener("phx:page-loading-start", info => topbar.show())
-window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+// topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+// window.addEventListener("phx:page-loading-start", info => topbar.show())
+// window.addEventListener("phx:page-loading-stop", info => topbar.hide())
 
 let Hooks = { CreateConversationFormHooks };
 

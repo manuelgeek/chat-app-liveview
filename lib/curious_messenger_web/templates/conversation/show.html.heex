@@ -1,15 +1,18 @@
 <div>
+  <a  href="/">Back</a>
+</div>
+<div>
     <b>User name:</b> <%= @user.nickname %>
 </div>
 <div>
     <b>Conversation title:</b> <%= @conversation.title %>
 </div>
 <div>
-    <%= f = form_for :message, "#", [phx_submit: :send_message] %>
-    <%= label f, :content %>
-    <%= text_input f, :content, value: :rand.uniform() %>
-    <%= submit "Send" %>
-    </form>
+    <.form let={f} for={:message} phx-submit="send_message">
+        <%= label f, :content %>
+        <%= text_input f, :content, value: :rand.uniform() %>
+        <button type="submit" phx-disable-with="Sending...">Send</button>
+    </.form>
 </div>
 <div>
     <b>Messages:</b>

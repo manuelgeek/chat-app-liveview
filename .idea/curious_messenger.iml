@@ -98,5 +98,6 @@
     <orderEntry type="library" name="esbuild" level="project" />
     <orderEntry type="library" name="myxql" level="project" />
     <orderEntry type="library" name="tds" level="project" />
+    <orderEntry type="library" name="ecto_mysql_extras" level="project" />
   </component>
 </module>

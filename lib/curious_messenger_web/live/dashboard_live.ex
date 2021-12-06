@@ -15,7 +15,7 @@ defmodule CuriousMessengerWeb.DashboardLive do
   end
 
   def mount(_params, %{"current_user" => current_user}, socket) do
-     CuriousMessengerWeb.Endpoint.subscribe("user_conversations_#{current_user.id}")
+    CuriousMessengerWeb.Endpoint.subscribe("user_conversations_#{current_user.id}")
 
     {:ok,
      socket
@@ -60,11 +60,12 @@ defmodule CuriousMessengerWeb.DashboardLive do
           }
         } = socket
       ) do
-    title = if conversation_form["title"] == "" do
-              build_title(changeset, contacts)
-            else
-              conversation_form["title"]
-            end
+    title =
+      if conversation_form["title"] == "" do
+        build_title(changeset, contacts)
+      else
+        conversation_form["title"]
+      end
 
     conversation_form = Map.put(conversation_form, "title", title)
 
@@ -141,7 +142,12 @@ defmodule CuriousMessengerWeb.DashboardLive do
   def handle_info(%{event: "new_conversation", payload: new_conversation}, socket) do
     user = socket.assigns[:current_user]
     annotated_conversation = new_conversation |> Map.put(:notify, true)
-    user = %{user | conversations: (user.conversations |> Enum.map(&(Map.delete(&1, :notify)))) ++ [annotated_conversation]}
+
+    user = %{
+      user
+      | conversations:
+          (user.conversations |> Enum.map(&Map.delete(&1, :notify))) ++ [annotated_conversation]
+    }
 
     {:noreply, assign(socket, :current_user, user)}
   end

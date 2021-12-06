@@ -16,7 +16,7 @@ config :curious_messenger, CuriousMessengerWeb.Endpoint,
   secret_key_base: "ms5e+3x2PlTjGkUlzBxvBNUwEp2A8rqAm+Xhll5seLBjRVvRlKxXvSFj08Djpg1j",
   render_errors: [view: CuriousMessengerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: CuriousMessenger.PubSub,
-  live_view: [signing_salt: "ZY0JJNNQ"]
+  live_view: [signing_salt: "9DWrJ8GGi8FtjovL7F1LvAjwgrK7Qd0J"]
 
 # Configures Elixir's Logger
 config :logger, :console,
