@@ -11,9 +11,9 @@
   </head>
   <body>
     <header>
-      <section class="container">
+      <section class="container px-2 md:px-16">
         <nav role="navigation">
-          <ul>
+          <ul class="text-blue-600 underline">
             <%= if Pow.Plug.current_user(@conn) do %>
                 <li><%= link "Profile", to: Routes.pow_registration_path(@conn, :edit) %></li>
                 <li><%= link "Sign out", to: Routes.pow_session_path(@conn, :delete), method: :delete %></li>

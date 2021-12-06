@@ -1,17 +1,17 @@
 <article class="column">
-  <h2>Ongoing Conversations</h2>
+  <h2 class="text-5xl mb-5">Ongoing Conversations</h2>
   <%= for conversation <- @current_user.conversations do %>
-    <div>
+    <div class="text-blue-600 text-3xl my-1">
       <%= link conversation.title, to: Routes.live_path(@socket, CuriousMessengerWeb.ConversationLive, conversation.id, @current_user.id) %>
     </div>
   <% end %>
 </article>
 
 <article class="column">
-  <h2>Create Conversation</h2>
+  <h2 class="text-5xl mb-5">Create Conversation</h2>
 
   <%= form_for @conversation_changeset, "", [id: "create-conversation-form", phx_submit: :create_conversation, phx_hook: "CreateConversationFormHooks"], fn f -> %>
-    <p>
+    <p class="text-blue-400 my-2 space-x-3">
       <%= inputs_for f, :conversation_members, fn cmf -> %>
         <%= remove_member_link(@contacts, cmf.source.changes[:user_id], @current_user.id) %>
 
@@ -20,11 +20,12 @@
     </p>
 
     <p>
-      <%= text_input f, :title, placeholder: "Title (optional)" %>
-      <%= submit "Create", disabled: disable_create_button?(assigns) %>
+      <%= text_input f, :title, placeholder: "Title (optional)", class: "my-2" %>
+      <%= submit "Create", disabled: disable_create_button?(assigns), class: "bg-blue-600 px-2 my-2" %>
     </p>
 
-    <ul>
+    <p class="text-4xl my-3">Contact</p>
+    <ul class="text-blue-600 text-3xl">
       <%= for user <- contacts_except(@contacts, @current_user) do %>
         <li>
           <%= add_member_link(user) %>

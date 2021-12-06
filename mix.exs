@@ -47,7 +47,7 @@ defmodule CuriousMessenger.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, "~> 0.17.5"},
       {:floki, ">= 0.30.0", only: :test},
-      {:pow, "~> 1.0.23"}
+      {:pow, "~> 1.0.23"},
     ]
   end
 

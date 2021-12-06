@@ -1,24 +1,32 @@
-<div>
-  <a  href="/">Back</a>
+<div class="mb-5">
+  <a class="bg-blue-600 p-3 font-bold text-white rounded" href="/">Back</a>
 </div>
-<div>
+<div class="text-4xl text-blue-500">
     <b>User name:</b> <%= @user.nickname %>
 </div>
 <div>
     <b>Conversation title:</b> <%= @conversation.title %>
 </div>
-<div>
+<div class="my-4">
     <.form let={f} for={:message} phx-submit="send_message">
-        <%= label f, :content %>
-        <%= text_input f, :content, value: :rand.uniform() %>
-        <button type="submit" phx-disable-with="Sending...">Send</button>
+        <%= label f, :content, class: "my-2" %>
+        <%= text_input f, :content, value: :rand.uniform(), class: "my-2" %>
+        <button type="submit" phx-disable-with="Sending..." class="bg-blue-600 px-2 my-2 text-white">Send</button>
     </.form>
 </div>
 <div>
-    <b>Messages:</b>
-    <%= for message <- @messages do %>
-    <div>
-        <b><%= message.user.nickname %></b>: <%= message.content %>
+    <b class="text-3xl text-blue-500">Messages:</b>
+    <div class="pb-20">
+      <%= for message <- @messages do %>
+        <%= if message.user.id === @user.id do %>
+          <div class="text-right bg-green-100 justify-self-end my-3 rounded py-3 px-6">
+            <p class="text-2xl font-bold"><%= message.user.nickname %></p> <%= message.content %>
+          </div>
+        <% else %>
+          <div class="text-left bg-blue-100 justify-self-end my-3 rounded py-3 px-6">
+            <p class="text-2xl font-bold"><%= message.user.nickname %></p> <%= message.content %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <% end %>
 </div>
