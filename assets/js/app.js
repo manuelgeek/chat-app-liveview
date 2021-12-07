@@ -18,19 +18,22 @@ import "../css/app.scss"
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
 import { Socket } from "phoenix"
-import {LiveSocket} from "phoenix_live_view"
-import topbar from "topbar"
+import { LiveSocket } from "phoenix_live_view"
+import topBar from "topbar"
 
-import CreateConversationFormHooks from "./create_conversation_form_hooks";
+import CreateConversationFormHooks from "./hooks/create_conversation_form_hooks";
+import ConversationListHooks from './hooks/conversation_list_hooks';
+
 
 // Show progress bar on live navigation and form submits
-topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
-window.addEventListener("phx:page-loading-start", info => topbar.show())
-window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+topBar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+window.addEventListener("phx:page-loading-start", info => topBar.show())
+window.addEventListener("phx:page-loading-stop", info => topBar.hide())
 
-let Hooks = { CreateConversationFormHooks };
+let Hooks = { CreateConversationFormHooks, ConversationListHooks };
 
 let liveSocket = new LiveSocket("/live", Socket, { params: { _csrf_token: csrfToken }, hooks: Hooks });
 liveSocket.connect()
 
 import "phoenix_html"
+Notification.requestPermission() // returns a Promise that we're not much interested in for now
