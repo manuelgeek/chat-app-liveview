@@ -1,8 +1,8 @@
-<article class="column">
+<article id="conversation-list" class="column" phx-hook="ConversationListHooks">
   <h2 class="text-5xl mb-5">Ongoing Conversations</h2>
   <%= for conversation <- @current_user.conversations do %>
     <div class="text-blue-600 text-3xl my-1">
-      <%= link conversation.title, to: Routes.live_path(@socket, CuriousMessengerWeb.ConversationLive, conversation.id, @current_user.id) %>
+      <%= link conversation.title, to: Routes.live_path(@socket, CuriousMessengerWeb.ConversationLive, conversation.id, @current_user.id), data: if Map.get(conversation, :notify), do: [notify: true], else: [] %>
     </div>
   <% end %>
 </article>

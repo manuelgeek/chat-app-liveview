@@ -1,4 +1,4 @@
-<h1>Register</h1>
+<h1 class="text-4xl text-blue-500">Register</h1>
 
 <%= form_for @changeset, @action, [as: :user], fn f -> %>
   <%= if @changeset.action do %>
@@ -24,9 +24,9 @@
   <%= error_tag f, :password_confirmation %>
 
   <div>
-    <%= submit "Register" %>
+    <%= submit "Register", class: "bg-blue-600 px-2 my-2 text-white" %>
   </div>
 <% end %>
 
 
-<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></span>
+<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new), class: "text-blue-500" %></span>
