@@ -27,7 +27,7 @@ config :curious_messenger, CuriousMessengerWeb.Endpoint,
       "development",
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
-    ],
+    ]
   ]
 
 # ## SSL Support

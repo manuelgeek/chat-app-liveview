@@ -8,6 +8,8 @@ defmodule CuriousMessenger.Chat do
 
   alias CuriousMessenger.Chat.Conversation
 
+  require Logger
+
   @doc """
   Returns the list of chat_conversations.
 
@@ -218,6 +220,15 @@ defmodule CuriousMessenger.Chat do
 
   alias CuriousMessenger.Chat.Message
 
+  def fetch_messages(%{conversation_id: conversation_id}) do
+    Repo.all(
+      from m in Message,
+        where: m.conversation_id == ^conversation_id,
+        preload: :user,
+        order_by: [desc: :inserted_at]
+    )
+  end
+
   @doc """
   Returns the list of chat_messages.
 
@@ -259,10 +270,28 @@ defmodule CuriousMessenger.Chat do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_message(attrs \\ %{}) do
+  def create_message(attrs \\ %{}, user) do
     %Message{}
     |> Message.changeset(attrs)
     |> Repo.insert()
+    |> publish_message(user)
+  end
+
+  def publish_message({:ok, message}, user) do
+    new_message = %{message | user: user}
+
+    CuriousMessengerWeb.Endpoint.broadcast!(
+      "conversation_#{message.conversation_id}",
+      "new_message",
+      new_message
+    )
+
+    {:ok, message}
+  end
+
+  def publish_message({:error, error}, _) do
+    Logger.error(inspect(error))
+    {:error, error}
   end
 
   @doc """
