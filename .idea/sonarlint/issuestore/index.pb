@@ -1,16 +1,10 @@
 
-V
-&lib/curious_messenger_web/telemetry.ex,6/9/69935cd74219a15dd2e58c3552422516a113eabb
-M
-lib/curious_messenger/repo.ex,0/a/0a8f37f46eb940c0f51b51528fba86d68e8f2b69
 F
 config/prod.secret.exs,d/3/d3f320fbb3dc1508a1d55d72ca0c0420afdcbdf1
 ?
 config/test.exs,1/f/1f578f1605ab144416b6fcd83cf5d68a8ff5f692
 ?
 config/prod.exs,a/1/a13a38ccb65a61d016bc1dd09f8ec30a7e55c9a3
-Z
-*lib/curious_messenger/chat/conversation.ex,a/8/a8dff1e236b9dcbbccef24d0a25ec69cf2610b63
 a
 1lib/curious_messenger/chat/conversation_member.ex,f/9/f949000463398f5619b7d57f935ad2dd9c0ca7ba
 M
@@ -21,12 +15,8 @@ Z
 *lib/curious_messenger/chat/seen_message.ex,0/7/07526b675923504e10e1ff61816ca27b2de81d87
 a
 1lib/curious_messenger_web/channels/user_socket.ex,8/7/8715ce55f816b45ed3c0cb70aff659a4fdafcffc
-g
-7lib/curious_messenger_web/templates/page/index.html.eex,b/d/bd863cd48935dfd9d80c301d2e0111684128fccd
 ^
 .lib/curious_messenger_web/views/layout_view.ex,f/7/f77af792d9cdb27b6edb1fde48a30024f33bb3d7
-h
-8lib/curious_messenger_web/controllers/page_controller.ex,8/d/8d465f31f6ef9a141df7967ec8c016656acb1dd0
 \
 ,lib/curious_messenger_web/views/page_view.ex,9/9/99ee8ff3adad817ea186386373db0579c4eaa408
 i
@@ -37,8 +27,6 @@ A
 config/config.exs,2/8/289455d916fa83cef175bf864a14b0e53be24ae5
 L
 lib/curious_messenger_web.ex,c/8/c88647aa33fc1c6a0d43cfcae0199c3d90f4aa72
-U
-%lib/curious_messenger_web/endpoint.ex,9/a/9a72584fcff916596039a651bc75979a982081e6
 g
 7lib/curious_messenger_web/templates/layout/app.html.eex,d/5/d5fe34ce0596511eb6939023baf8ab4a36491734
 F
@@ -55,8 +43,6 @@ C
 assets/package.json,8/b/8b5f206fd041c105d9e1da9e29673006b7622228
 C
 assets/css/app.scss,a/7/a760694af7f06884e17f05ca9d3a59b8481d56a3
-a
-1lib/curious_messenger_web/views/dashboard_view.ex,6/8/68efc5eeb6ee967e82bac395f67259a0b35f350d
 h
 8lib/curious_messenger_web/templates/layout/root.html.eex,5/8/58c7365a33de3d3679ec610a90c7b3a39c041dee
 l

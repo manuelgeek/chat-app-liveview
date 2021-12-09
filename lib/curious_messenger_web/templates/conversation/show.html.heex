@@ -1,9 +1,9 @@
 <div class="mb-5">
   <a class="bg-blue-600 p-3 font-bold text-white rounded" href="/">Back</a>
 </div>
-<div class="text-4xl text-blue-500">
-    <b>User name:</b> <%= @user.nickname %>
-</div>
+
+<.avatar user={@user}></.avatar>
+
 <div>
     <b>Conversation title:</b> <%= @conversation.title %>
 </div>
@@ -16,24 +16,5 @@
 </div>
 <div>
     <b class="text-3xl text-blue-500">Messages:</b>
-    <div class="pb-20" id="conversation" phx-hook="ConversationHooks">
-      <%= for message <- @messages do %>
-        <%= if message.user.id === @user.id do %>
-          <div class="text-right bg-green-100 justify-self-end my-3 rounded py-3 px-6">
-            <p class="text-2xl font-bold"><%= message.user.nickname %></p> <%= message.content %>
-          </div>
-        <% else %>
-          <%= if Map.get(message, :incoming) do %>
-            <div data-incoming="true" class="text-left bg-blue-100 justify-self-end my-3 rounded py-3 px-6">
-              <p class="text-2xl font-bold"><%= message.user.nickname %></p> <%= message.content %>
-            </div>
-          <% else %>
-            <div class="text-left bg-blue-100 justify-self-end my-3 rounded py-3 px-6">
-              <p class="text-2xl font-bold"><%= message.user.nickname %></p> <%= message.content %>
-            </div>
-          <% end %>
-
-        <% end %>
-      <% end %>
-    </div>
+    <CuriousMessengerWeb.Components.Messages.render messages={@messages} user={@user} />
 </div>
