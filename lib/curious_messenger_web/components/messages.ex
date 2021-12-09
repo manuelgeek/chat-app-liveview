@@ -14,5 +14,4 @@ defmodule CuriousMessengerWeb.Components.Messages do
     </div>
     """
   end
-
 end

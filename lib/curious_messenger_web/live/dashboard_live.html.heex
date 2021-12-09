@@ -10,7 +10,7 @@
 <article class="column">
   <h2 class="text-5xl mb-5">Create Conversation</h2>
 
-  <%= form_for @conversation_changeset, "", [id: "create-conversation-form", phx_submit: :create_conversation, phx_hook: "CreateConversationFormHooks"], fn f -> %>
+  <.form let={f} for={@conversation_changeset} id="create-conversation-form" phx_submit="create_conversation" phx_hook="CreateConversationFormHooks" phx_change="update_form">
     <p class="text-blue-400 my-2 space-x-3">
       <%= inputs_for f, :conversation_members, fn cmf -> %>
         <%= remove_member_link(@contacts, cmf.source.changes[:user_id], @current_user.id) %>
@@ -20,7 +20,7 @@
     </p>
 
     <p>
-      <%= text_input f, :title, placeholder: "Title (optional)", class: "my-2" %>
+      <%= text_input f, :title, placeholder: "Title (optional)", class: "my-2", value: @title %>
       <%= submit "Create", disabled: disable_create_button?(assigns), class: "bg-blue-600 px-2 my-2" %>
     </p>
 
@@ -32,5 +32,5 @@
         </li>
       <% end %>
     </ul>
-  <% end %>
+  </.form>
 </article>

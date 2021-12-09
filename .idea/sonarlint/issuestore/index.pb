@@ -11,26 +11,18 @@ M
 lib/curious_messenger/auth.ex,6/c/6ce04b90ee4b002447c230405ca0877f893d31f0
 S
 #lib/curious_messenger/users/user.ex,3/a/3ac87af1cdce0568494e83340427ddf3e8dc45e2
-Z
-*lib/curious_messenger/chat/seen_message.ex,0/7/07526b675923504e10e1ff61816ca27b2de81d87
 a
 1lib/curious_messenger_web/channels/user_socket.ex,8/7/8715ce55f816b45ed3c0cb70aff659a4fdafcffc
 ^
 .lib/curious_messenger_web/views/layout_view.ex,f/7/f77af792d9cdb27b6edb1fde48a30024f33bb3d7
 \
 ,lib/curious_messenger_web/views/page_view.ex,9/9/99ee8ff3adad817ea186386373db0579c4eaa408
-i
-9lib/curious_messenger_web/templates/layout/live.html.leex,1/6/165926a0cbbfea22278b68211c5047a216550ecd
 8
 mix.lock,e/b/ebcb86d0416a58066f67dffa348aa2b2f4f5dca8
 A
 config/config.exs,2/8/289455d916fa83cef175bf864a14b0e53be24ae5
-L
-lib/curious_messenger_web.ex,c/8/c88647aa33fc1c6a0d43cfcae0199c3d90f4aa72
 g
 7lib/curious_messenger_web/templates/layout/app.html.eex,d/5/d5fe34ce0596511eb6939023baf8ab4a36491734
-F
-assets/css/phoenix.css,3/8/381553fd0edb6782384a6f84e74f001bd068d0d2
 I
 assets/tailwind.config.js,2/6/2623cba788d76f06a64a9fe357960b2234ebf610
 H
@@ -41,8 +33,6 @@ H
 config/dev.exs,a/c/ac4f4eb5624d27d4dd2e503cbc8c6f07a6c96aae
 C
 assets/package.json,8/b/8b5f206fd041c105d9e1da9e29673006b7622228
-C
-assets/css/app.scss,a/7/a760694af7f06884e17f05ca9d3a59b8481d56a3
 h
 8lib/curious_messenger_web/templates/layout/root.html.eex,5/8/58c7365a33de3d3679ec610a90c7b3a39c041dee
 l
