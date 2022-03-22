@@ -85,7 +85,6 @@ defmodule CuriousMessengerWeb.DashboardLive do
         %{"user-id" => new_member_id},
         %{assigns: %{conversation_changeset: changeset}} = socket
       ) do
-
     {:ok, new_member_id} = Ecto.Type.cast(:integer, new_member_id)
 
     old_members = socket.assigns[:conversation_changeset].changes.conversation_members
@@ -106,10 +105,10 @@ defmodule CuriousMessengerWeb.DashboardLive do
 
   def handle_event(
         "update_form",
-        %{"conversation" => %{ "title" => title} = params },
+        %{"conversation" => %{"title" => title} = params},
         socket
       ) do
-    IO.inspect socket
+    IO.inspect(socket)
 
     if title != nil do
       {:noreply, assign(socket, :title, title)}

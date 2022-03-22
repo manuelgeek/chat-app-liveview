@@ -51,6 +51,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/castore" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/swoosh" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/esbuild" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phx_izitoast" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -108,5 +109,7 @@
     <orderEntry type="library" name="mail" level="project" />
     <orderEntry type="library" name="gen_smtp" level="project" />
     <orderEntry type="library" name="bypass" level="project" />
+    <orderEntry type="library" name="Elixir 1.13.1" level="application" />
+    <orderEntry type="library" name="phx_izitoast" level="project" />
   </component>
 </module>

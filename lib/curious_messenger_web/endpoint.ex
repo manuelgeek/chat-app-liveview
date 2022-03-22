@@ -26,6 +26,12 @@ defmodule CuriousMessengerWeb.Endpoint do
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
+  plug Plug.Static,
+    at: "/",
+    from: {:phx_izitoast, "priv/static"},
+    gzip: false,
+    only: ~w(css  js)
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do

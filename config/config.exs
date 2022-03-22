@@ -13,6 +13,10 @@ config :curious_messenger,
 # Configures the endpoint
 config :curious_messenger, CuriousMessengerWeb.Endpoint,
   url: [host: "localhost"],
+  http: [
+    port: System.get_env("PORT") || "80",
+    protocol_options: [max_header_value_length: 8192]
+  ],
   secret_key_base: "ms5e+3x2PlTjGkUlzBxvBNUwEp2A8rqAm+Xhll5seLBjRVvRlKxXvSFj08Djpg1j",
   render_errors: [view: CuriousMessengerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: CuriousMessenger.PubSub,
